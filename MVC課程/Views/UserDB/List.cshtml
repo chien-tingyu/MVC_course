@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MVC課程.Models.UserTable>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.UserName)</th>             
+            <th>@Html.DisplayNameFor(m => m.UserSex)</th>             
+            <th>@Html.DisplayNameFor(m => m.UserBirthDay) </th>
+            <th>@Html.DisplayNameFor(m => m.UserMobilePhone)</th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserSex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserBirthDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserMobilePhone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit編輯", "Edit", new { _ID= item.UserId }) |
+                @Html.ActionLink("Details明細", "Details", new { _ID=item.UserId }) |
+                @Html.ActionLink("Delete刪除", "Delete", new { _ID=item.UserId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

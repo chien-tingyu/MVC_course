@@ -1,0 +1,58 @@
+﻿@model MVC課程.Models.UserTable
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>UserTable</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <font color="blue">@Html.DisplayNameFor(m => m.UserName)</font>
+            </dt>
+    
+            <dd>
+                <font color="blue">@Html.DisplayFor(m => m.UserName) </font>
+</dd>
+    
+            <dt>
+                @Html.DisplayNameFor(m => m.UserSex)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(m => m.UserSex)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(m => m.UserBirthDay)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(m => m.UserBirthDay)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(m => m.UserMobilePhone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(m => m.UserMobilePhone)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { _ID = Model.UserId }) |
+        @Html.ActionLink("Back to List", "List")
+    </p>
+</body>
+</html>
