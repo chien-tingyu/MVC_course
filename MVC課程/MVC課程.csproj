@@ -193,6 +193,9 @@
     <Content Include="Views\UserDB\Create.cshtml" />
     <Content Include="Views\UserDB\Delete.cshtml" />
     <Content Include="Views\UserDB\Edit.cshtml" />
+    <Content Include="Views\UserDB\Search.cshtml" />
+    <Content Include="Views\UserDB\Search4_Multi.cshtml" />
+    <Content Include="Views\UserDB\Search4_Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

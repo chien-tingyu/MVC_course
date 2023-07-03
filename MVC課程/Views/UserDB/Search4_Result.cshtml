@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MVC課程.Models.UserTable>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search4_Result</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New (新增)","Create")
+    </p>
+    <table class="table" border="1">
+        <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.UserMobilePhone) 
+        </th>
+            </tr>
+        @foreach(var item in Model) { 
+        <tr>
+            <td>
+                @Html.DisplayFor(modelitem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelitem => item.UserMobilePhone)
+            </td>
+        </tr>             
+        }
+
+    </table>
+</body>
+</html>

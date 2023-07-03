@@ -131,5 +131,55 @@ namespace MVC課程.Controllers
         _db.SaveChanges();
           return RedirectToAction("List");
         }
+
+        public ActionResult Search(string _SearchWord = "MVC")
+        {
+            ViewData["SW"] = _SearchWord;
+
+            IQueryable<UserTable> ListAll = from _usertable in _db.UserTables
+                                            select _usertable;
+            if (!String.IsNullOrEmpty(_SearchWord))
+            {
+                return View(ListAll.Where(s => s.UserName.Contains(_SearchWord)));
+            }
+            else 
+            {
+                return HttpNotFound();
+            }
+        }
+        public ActionResult Search4_Multi()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Search4_Multi(UserTable _userTable)
+        { 
+        string uName = _userTable.UserName;
+        string uMobilePhone = _userTable.UserMobilePhone;
+
+        var ListAll = _db.UserTables.Select(s => s);
+            if(!string.IsNullOrWhiteSpace(uName))
+            {
+                ListAll = ListAll.Where(s => s.UserName.Contains(uName));
+            }
+            if (!string.IsNullOrWhiteSpace(uMobilePhone))
+            {
+                ListAll = ListAll.Where(s => s.UserMobilePhone.Contains(uMobilePhone));
+            }
+            if ((_userTable != null) && (ModelState.IsValid))
+            {
+                return View("Search4_Result", ListAll.ToList());
+            }
+            else 
+            {
+                return HttpNotFound();
+            }
+
+          
+
+        }
+
     }
+
 }
